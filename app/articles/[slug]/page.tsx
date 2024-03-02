@@ -1,7 +1,11 @@
 import React from "react";
-const API_URL = process.env.API_URL;
+
 import { revalidatePath } from "next/cache";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+
+const API_URL = process.env.API_URL;
+
+export const revalidate = 30;
 
 const getOneArticle = async (slug: any) => {
   const res = await fetch(`${API_URL}/api/articles?filters[slug]=${slug}`);

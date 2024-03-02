@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 const API_URL = process.env.API_URL;
 
+export const revalidate = 30;
+
 export default async function Home() {
   const res = await fetch(`${API_URL}/api/articles`);
   const { data } = await res.json();
