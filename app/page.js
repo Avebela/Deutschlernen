@@ -3,12 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { revalidatePath } from "next/cache";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-const VERCEL_URL = process.env.VERCEL_URL;
-
+import API_URL from "./config";
 export const revalidate = 30;
 
 export default async function Home() {
-  const res = await fetch(`${VERCEL_URL}/api/articles`);
+  const res = await fetch(`${API_URL}/api/articles`);
   const { data } = await res.json();
   console.log(data);
 

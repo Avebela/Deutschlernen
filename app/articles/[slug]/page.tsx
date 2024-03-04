@@ -3,12 +3,12 @@ import React from "react";
 import { revalidatePath } from "next/cache";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
-const VERCEL_URL = process.env.VERCEL_URL;
+import API_URL from "@/app/config";
 
 export const revalidate = 30;
 
 const getOneArticle = async (slug: any) => {
-  const res = await fetch(`${VERCEL_URL}/api/articles?filters[slug]=${slug}`);
+  const res = await fetch(`${API_URL}/api/articles?filters[slug]=${slug}`);
   const data = await res.json();
   revalidatePath(`/articles/${slug}`);
   return data;
