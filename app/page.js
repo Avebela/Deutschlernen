@@ -1,15 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 import { revalidatePath } from "next/cache";
-
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-//const API_URL = process.env.API_URL;
-import config from "./config";
+const VERCEL_URL = process.env.VERCEL_URL;
 
 export const revalidate = 30;
 
 export default async function Home() {
-  const res = await fetch(`${config.api}/api/articles`);
+  const res = await fetch(`${VERCEL_URL}/api/articles`);
+  const { data } = await res.json();
+  console.log(data);
 
   //   const { data as categories } = await fetch(`${config.api}/api/categories?fields=name`).then((res) =>
   //   res.json()
