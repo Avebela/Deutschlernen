@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import API_URL from "./config";
 export const VERCEL_URL =
-  process.env.VERCEL_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+  process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL;
 export const revalidate = 30;
 
 export default async function Home() {
-  const res = await fetch(`${VERCEL_URL}/api/articles`);
+  const res = await fetch(`${API_URL}/api/articles`);
   const { data } = await res.json();
   console.log(data);
 
