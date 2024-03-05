@@ -11,7 +11,7 @@ export const revalidate = 30;
 
 const getOneArticle = async (slug: any) => {
   const res = await fetch(
-    `http://127.0.0.1:1337/api/articles?filters[slug]=${slug}`
+    `${process.env.API_URL}/api/articles?filters[slug]=${slug}`
   );
   const data = await res.json();
 

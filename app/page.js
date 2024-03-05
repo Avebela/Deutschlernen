@@ -10,7 +10,7 @@ export const VERCEL_URL =
 export const revalidate = 30;
 
 export default async function Home() {
-  const res = await fetch(`http://127.0.0.1:1337/api/articles`);
+  const res = await fetch(`${process.env.API_URL}/api/articles`);
   const { data } = await res.json();
   console.log(data);
 
