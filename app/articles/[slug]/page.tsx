@@ -11,7 +11,7 @@ export const revalidate = 30;
 
 const getOneArticle = async (slug: any) => {
   const res = await fetch(
-    `${process.env.API_URL}/api/articles?filters[slug]=${slug}`
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/articles?filters[slug]=${slug}`
   );
   const data = await res.json();
 
