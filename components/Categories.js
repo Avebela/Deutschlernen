@@ -11,9 +11,12 @@ const Categories = ({ categories }) => {
   }, []);
 
   return (
-    <div className="flex gap-6 mb-8">
+    <div className="flex gap-4 mb-8">
       {categories?.data?.map((category) => (
-        <div key={category.id}>
+        <div
+          key={category.id}
+          className="w-28 h-20 text-white bg-slate-600 rounded-md  text-center flex items-center  hover:shadow-2xl"
+        >
           <Category cat={category} />
         </div>
       ))}
